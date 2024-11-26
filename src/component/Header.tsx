@@ -13,14 +13,14 @@ function Header() {
             <div className="flex gap-2">
                 <button 
                     className="mx-6 border-b-4 border-white hover:border-red-600 transition-colors duration-300"
-                    onClick={() => {navigate("/home")}}>
+                    onClick={() => {navigate("/signin")}}>
                         Home
                     </button>
                 <button 
                     className="mx-6 border-b-4 border-white hover:border-red-600 transition-colors duration-300"
                     onClick={() => {navigate("/signin")}}
                 >Sign in</button>
-                <button className="flex items-center gap-2 bg-orange-300 mx-6 hover:bg-orange-600 text-white font-medium py-2 px-2 rounded shadow-lg transition duration-200 text-sm">
+                {/* <button className="flex items-center gap-2 bg-orange-300 mx-6 hover:bg-orange-600 text-white font-medium py-2 px-2 rounded shadow-lg transition duration-200 text-sm">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 507.83 470.86"
@@ -73,7 +73,7 @@ function Header() {
                         <polygon className="g" points="284.32 257.1 290.88 142.41 321.1 60.72 186.93 60.72 221.92 142.41 223.7 257.1 226.29 293.07 281.34 292.87 284.32 257.1" />
                     </svg>
                     Connect Wallet
-                </button>
+                </button> */}
                 <button 
                     className="bg-red-400 text-sm text-white rounded-3xl mx-6 px-8 py-3 hover:bg-red-600"
                     onClick={() => {navigate("/register")}}

@@ -2,9 +2,11 @@ import { useState } from "react";
 import {SignupFormInput, RegisterButton} from "./SignupFormInput";
 import RocketMan from "../assets/RocketMan";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 
 function SignupForm() {
+    const navigate = useNavigate();
 
     async function handleClickInvestor() {
         try{
@@ -17,7 +19,7 @@ function SignupForm() {
             }
             const response = await axios.post("http://localhost:3000/apis/SignUpInvestor", body);
             if (response.status === 200) {
-                console.log("Login successful:", response.data);
+                console.log("Login successful:", response.data  );
 
             } else {
                 console.error("Unexpected response:", response);
@@ -36,20 +38,23 @@ function SignupForm() {
     async function handleClickCompany() {
         try{
             const body = {
-                data: {
-                    rNo: rNo,
-                    password: password,
-                    walletAddress: walletAddress
-                }
-            }
+              data: {
+                registrationNumber: rNo,
+                password: password,
+                walletAddress: walletAddress,
+              },
+            };
             console.log("body" + body)
 
             const response = await axios.post("http://localhost:3000/apis/SignUpCompany", body);
             if (response.status === 200) {
                 console.log("Login successful:", response.data);
+                alert("You have been registered")
+                navigate("/signin")
             } else {
                 console.error("Unexpected response:", response);
             }
+            
         } catch (error) {
             if (axios.isAxiosError(error)) {
                 // Axios-specific error
@@ -80,8 +85,8 @@ function SignupForm() {
                             <h1 className="text-6xl font-extrabold text-red-600 max-w-lg tracking-wider">Welcome to our community</h1>
                             <div className="text-sm mt-2 p-1 max-w-xs font-semibold">Invest in tomorrow’s game-changers today. Join us and fuel the next wave of innovation.</div>
                         </div>
-                        <button className="bg-red-600 w-fit text-black font-bold text-2xl px-6 py-2 rounded-lg transition duration-300 ease-in-out transform hover:bg-red-700 hover:scale-105 hover:shadow-lg">
-                            Join the Revolution
+                        <button className="bg-red-600 w-fit text-black font-bold text-2xl px-6 py-2 rounded-lg transition duration-300 ease-in-out transform hover:bg-red-700 hover:scale-105 hover:shadow-lg" onClick={() => navigate("/dashboard")}>
+                            Enter
                         </button>
                     </div>
                 </div>

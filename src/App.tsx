@@ -5,6 +5,7 @@ import Header from "./component/Header";
 import CreateCampaign from "./component/CreateCampaign";
 import SignupForm from "./component/SignupForm";
 import SigninForm from "./component/SigninForm";
+import DonateToCampaign from "./component/DonateToCampaign";
 // import ListCampaigns from "./component/ListCampaigns";
 
 function App() {
@@ -61,11 +62,12 @@ function App() {
         <BrowserRouter>
           <Header /> {/* Always rendered at the top */}
           <Routes>
-            <Route path="/dashboard" element={<ListCampaigns Campaigns={Campaigns}/>} />
+            <Route path="/dashboard" element={<ListCampaigns />} />
             <Route path="/campaign/:id" element={<Campaign />} />
             <Route path="/campaign/add" element={<CreateCampaign />} />
             <Route path="/register" element={<SignupForm />} />
             <Route path="/signin" element={<SigninForm />} />
+            <Route path="/donate" element={<DonateToCampaign />} />
           </Routes>
         </BrowserRouter>
       </div>

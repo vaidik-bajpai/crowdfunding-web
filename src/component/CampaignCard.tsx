@@ -27,16 +27,18 @@ function CampaignCard({id, campaignTitle, description, target, deadline, image, 
     return (
         <div 
             className="flex flex-col max-w-xs gap-4 bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-transform transform hover:scale-105 duration-300"
-            onClick={() => navigate("/campaign/1")}
+            onClick={() => navigate(`/campaign/${id}`, {
+                state: {id, campaignTitle, description, target, deadline, image, amountCollected}
+            })}
         >
             <div className="text-gray-800 text-xl font-bold truncate">{campaignTitle}</div>
             <img className="rounded-lg object-cover h-40 w-full" src={image} alt="campaign image" />
             <div className="flex justify-between text-sm text-gray-600">
                 <div>
-                Target: <span className="text-amber-500">${target.toLocaleString()}</span>
+                Target: <span className="text-amber-500">Wei {target.toLocaleString()}</span>
                 </div>
                 <div>
-                Collected: <span className="text-green-500">${amountCollected.toLocaleString()}</span>
+                Collected: <span className="text-green-500">Wei {amountCollected.toLocaleString()}</span>
                 </div>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
@@ -48,7 +50,7 @@ function CampaignCard({id, campaignTitle, description, target, deadline, image, 
             <div className="text-gray-600 text-sm">
                 Deadline: <span className="font-semibold text-gray-800">{formatDeadline(deadline)}</span>
             </div>
-            <div className="cursor-pointer bg-gray-800 w-fit px-4 py-2 rounded-lg text-white font-semibold text-center transition-colors duration-300 hover:bg-gray-900">
+            <div className="cursor-pointer bg-gray-800 z-100 w-fit px-4 py-2 rounded-lg text-white font-semibold text-center transition-colors duration-300 hover:bg-gray-900" >
                 Donate
             </div>
         </div>

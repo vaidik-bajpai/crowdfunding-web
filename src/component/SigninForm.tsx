@@ -2,6 +2,7 @@ import { useState } from "react";
 import {SignupFormInput, RegisterButton} from "./SignupFormInput";
 import RocketMan from "../assets/RocketMan";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 
 function SigninForm() {
@@ -65,6 +66,8 @@ function SigninForm() {
     const [password, setPassword] = useState<string>();
     const [rNo, setRNo] = useState<string>();
 
+    const navigate = useNavigate();
+
     return (
         <div className="w-full px-6">
             <div className="flex mx-auto max-w-7xl bg-transparent relative w-full">
@@ -77,8 +80,8 @@ function SigninForm() {
                             <h1 className="text-6xl font-extrabold text-red-600 max-w-lg tracking-wider">Welcome Back! 🚀</h1>
                             <div className="text-sm mt-2 p-1 max-w-xs font-semibold">Sign in to fund ideas, track your impact, and shape the future."</div>
                         </div>
-                        <button className="bg-red-600 w-fit text-black font-bold text-2xl px-6 py-2 rounded-lg transition duration-300 ease-in-out transform hover:bg-red-700 hover:scale-105 hover:shadow-lg">
-                            Join the Revolution
+                        <button className="bg-red-600 w-fit text-black font-bold text-2xl px-6 py-2 rounded-lg transition duration-300 ease-in-out transform hover:bg-red-700 hover:scale-105 hover:shadow-lg" onClick={() => navigate("/dashboard")}>
+                            Enter
                         </button>
                     </div>
                 </div>
